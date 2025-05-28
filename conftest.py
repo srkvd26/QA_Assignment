@@ -22,4 +22,4 @@ def pytest_generate_tests(metafunc):
     if metafunc.function.__name__ == "test_signup":
         data = metafunc.config.getini("credentials")
         params = [tuple(line.split(",")) for line in data]
-        metafunc.parametrize(("email", "password", "username"), params)
+        metafunc.parametrize(("email", "username", "password", "message"), params)

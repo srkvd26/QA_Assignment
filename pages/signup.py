@@ -7,6 +7,9 @@ class SignupForm(CommonAction):
     password_field = (By.XPATH, "//*[@id = 'password']")
     username_field = (By.XPATH, "//*[@placeholder = 'Username']")
     continue_btn = (By.XPATH, "//*[contains(text(), 'Continue')]")
+    blank_email_msg = (By.XPATH, "//*[@class = 'mb-0 nux-error' and contains(text(), 'Email cannot be blank')]")
+    blank_password_msg = (By.XPATH, "//*[@class = 'mb-0 nux-error' and contains(text(), 'Password cannot be blank')]")
+    blank_username_msg = (By.XPATH, "//*[@class = 'mb-0 nux-error' and contains(text(), 'Username cannot be blank')]")
 
 
     def enter_email(self, email):
@@ -20,3 +23,12 @@ class SignupForm(CommonAction):
 
     def click_continue_button(self):
         self.wait_till_clickable(self.continue_btn).click()
+
+    def read_blank_usrname_msg(self):
+        return self.wait_till_located(self.blank_username_msg).text
+    
+    def read_blank_pwd_msg(self):
+        return self.wait_till_located(self.blank_password_msg).text
+    
+    def read_blank_email_msg(self):
+        return self.wait_till_located(self.blank_email_msg).text

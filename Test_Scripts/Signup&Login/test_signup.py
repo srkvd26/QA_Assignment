@@ -1,10 +1,8 @@
-from utils import selenium_helpers
 from pages.signup import SignupForm
 from pages.homepage import HomePage
-import time
 
 
-def test_signup(driver, email, password, username):
+def test_signup(driver, email, username, password, message):
     try:
         homepage = HomePage(driver)
         homepage.click_signup_button()
@@ -12,7 +10,8 @@ def test_signup(driver, email, password, username):
         signup_page.enter_email(email)
         signup_page.enter_password(password)
         signup_page.enter_username(username)
-        time.sleep(5)
-
+        signup_page.click_continue_button()
+        assert message in signup_page.read_blank_email_msg() or signup_page.read_blank_pwd_msg() or signup_page.read_blank_usrname_msg()
+    
     except Exception as e:
         print("[Exception Occured] " + str(e))
