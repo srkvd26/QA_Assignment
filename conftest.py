@@ -1,5 +1,7 @@
 from selenium import webdriver
 import pytest
+from pages.login import LoginPage
+from pages.homepage import HomePage
 
 @pytest.fixture()
 def driver():
@@ -10,6 +12,19 @@ def driver():
     driver.get("https://github.com/")
     yield driver
     driver.quit()
+
+@pytest.fixture()
+def login(request, driver):
+    username, password = request.param
+    homepage = HomePage(driver)
+    login_page = LoginPage(driver)
+
+    homepage.click_signin_button()
+    login_page.enter_username(username)
+    login_page.enter_password(password)
+    login_page.click_signin_button()
+
+    yield driver
 
 def pytest_addoption(parser):
     parser.addini(
