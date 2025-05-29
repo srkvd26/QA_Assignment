@@ -13,13 +13,13 @@ def driver():
 
 def pytest_addoption(parser):
     parser.addini(
-        "credentials",
-        "List of user credentials",
+        "TC_signup_001",
+        "Test data for TC_singup_001",
         type="linelist"
     )
 
 def pytest_generate_tests(metafunc):
-    if metafunc.function.__name__ == "test_signup":
-        data = metafunc.config.getini("credentials")
+    if metafunc.function.__name__ == "test_TC_signup_001":
+        data = metafunc.config.getini("TC_signup_001")
         params = [tuple(line.split(",")) for line in data]
         metafunc.parametrize(("email", "username", "password", "message"), params)

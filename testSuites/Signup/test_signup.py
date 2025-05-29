@@ -15,5 +15,3 @@ def test_TC_signup_001(driver, email, username, password, message):
     
     except Exception as e:
         print("[Exception Occured] " + str(e))
-
-    
