@@ -14,7 +14,13 @@ def driver():
 def pytest_addoption(parser):
     parser.addini(
         "TC_signup_001",
-        "Test data for TC_singup_001",
+        "Test data for TC_signup_001",
+        type="linelist"
+    )
+
+    parser.addini(
+        "TC_signin_001",
+        "Test data for TC_signin_001",
         type="linelist"
     )
 
@@ -23,3 +29,8 @@ def pytest_generate_tests(metafunc):
         data = metafunc.config.getini("TC_signup_001")
         params = [tuple(line.split(",")) for line in data]
         metafunc.parametrize(("email", "username", "password", "message"), params)
+
+    if metafunc.function.__name__ == "test_TC_login_001":
+        data = metafunc.config.getini("TC_signin_001")
+        params = [tuple(line.split(",")) for line in data]
+        metafunc.parametrize(("username", "password"), params)
