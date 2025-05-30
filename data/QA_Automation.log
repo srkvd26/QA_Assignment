@@ -1,0 +1,108 @@
+2025-05-30 06:01:28,443 - ********* test_TC_signup_001 ********
+2025-05-30 06:01:41,566 - ********* test_TC_signup_001 ********
+2025-05-30 06:02:16,531 - [Exception Occured] Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6643CCF45+75717]
+	GetHandleVerifier [0x00007FF6643CCFA0+75808]
+	(No symbol) [0x00007FF664198F9A]
+	(No symbol) [0x00007FF6641EF4C6]
+	(No symbol) [0x00007FF6641EF77C]
+	(No symbol) [0x00007FF664242577]
+	(No symbol) [0x00007FF6642173BF]
+	(No symbol) [0x00007FF66423F39C]
+	(No symbol) [0x00007FF664217153]
+	(No symbol) [0x00007FF6641E0421]
+	(No symbol) [0x00007FF6641E11B3]
+	GetHandleVerifier [0x00007FF6646CD71D+3223453]
+	GetHandleVerifier [0x00007FF6646C7CC2+3200322]
+	GetHandleVerifier [0x00007FF6646E5AF3+3322739]
+	GetHandleVerifier [0x00007FF6643E6A1A+180890]
+	GetHandleVerifier [0x00007FF6643EE11F+211359]
+	GetHandleVerifier [0x00007FF6643D5294+109332]
+	GetHandleVerifier [0x00007FF6643D5442+109762]
+	GetHandleVerifier [0x00007FF6643BBA59+4825]
+	BaseThreadInitThunk [0x00007FFEB0F57374+20]
+	RtlUserThreadStart [0x00007FFEB17FCC91+33]
+
+2025-05-30 06:02:26,507 - ********* test_TC_signup_001 ********
+2025-05-30 06:03:01,604 - [Exception Occured] Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6643CCF45+75717]
+	GetHandleVerifier [0x00007FF6643CCFA0+75808]
+	(No symbol) [0x00007FF664198F9A]
+	(No symbol) [0x00007FF6641EF4C6]
+	(No symbol) [0x00007FF6641EF77C]
+	(No symbol) [0x00007FF664242577]
+	(No symbol) [0x00007FF6642173BF]
+	(No symbol) [0x00007FF66423F39C]
+	(No symbol) [0x00007FF664217153]
+	(No symbol) [0x00007FF6641E0421]
+	(No symbol) [0x00007FF6641E11B3]
+	GetHandleVerifier [0x00007FF6646CD71D+3223453]
+	GetHandleVerifier [0x00007FF6646C7CC2+3200322]
+	GetHandleVerifier [0x00007FF6646E5AF3+3322739]
+	GetHandleVerifier [0x00007FF6643E6A1A+180890]
+	GetHandleVerifier [0x00007FF6643EE11F+211359]
+	GetHandleVerifier [0x00007FF6643D5294+109332]
+	GetHandleVerifier [0x00007FF6643D5442+109762]
+	GetHandleVerifier [0x00007FF6643BBA59+4825]
+	BaseThreadInitThunk [0x00007FFEB0F57374+20]
+	RtlUserThreadStart [0x00007FFEB17FCC91+33]
+
+2025-05-30 06:56:12,964 - ********* test_TC_login_001 ********
+2025-05-30 06:56:29,358 - ********* test_TC_login_001 ********
+2025-05-30 06:56:40,433 - ********* test_TC_signin_004 ********
+2025-05-30 06:56:56,641 - ********* test_TC_repocre_001 ********
+2025-05-30 06:57:01,494 - [Exception Occured] assert 'my-new-repo' in 'https://github.com/new'
+ +  where 'https://github.com/new' = <selenium.webdriver.chrome.webdriver.WebDriver (session="81c19797da008a0c1da69b4e33acbc49")>.current_url
+2025-05-30 06:57:11,888 - ********* test_TC_signup_001 ********
+2025-05-30 06:57:23,152 - ********* test_TC_signup_001 ********
+2025-05-30 06:57:57,702 - [Exception Occured] Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6643CCF45+75717]
+	GetHandleVerifier [0x00007FF6643CCFA0+75808]
+	(No symbol) [0x00007FF664198F9A]
+	(No symbol) [0x00007FF6641EF4C6]
+	(No symbol) [0x00007FF6641EF77C]
+	(No symbol) [0x00007FF664242577]
+	(No symbol) [0x00007FF6642173BF]
+	(No symbol) [0x00007FF66423F39C]
+	(No symbol) [0x00007FF664217153]
+	(No symbol) [0x00007FF6641E0421]
+	(No symbol) [0x00007FF6641E11B3]
+	GetHandleVerifier [0x00007FF6646CD71D+3223453]
+	GetHandleVerifier [0x00007FF6646C7CC2+3200322]
+	GetHandleVerifier [0x00007FF6646E5AF3+3322739]
+	GetHandleVerifier [0x00007FF6643E6A1A+180890]
+	GetHandleVerifier [0x00007FF6643EE11F+211359]
+	GetHandleVerifier [0x00007FF6643D5294+109332]
+	GetHandleVerifier [0x00007FF6643D5442+109762]
+	GetHandleVerifier [0x00007FF6643BBA59+4825]
+	BaseThreadInitThunk [0x00007FFEB0F57374+20]
+	RtlUserThreadStart [0x00007FFEB17FCC91+33]
+
+2025-05-30 06:58:08,108 - ********* test_TC_signup_001 ********
+2025-05-30 06:58:42,891 - [Exception Occured] Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6643CCF45+75717]
+	GetHandleVerifier [0x00007FF6643CCFA0+75808]
+	(No symbol) [0x00007FF664198F9A]
+	(No symbol) [0x00007FF6641EF4C6]
+	(No symbol) [0x00007FF6641EF77C]
+	(No symbol) [0x00007FF664242577]
+	(No symbol) [0x00007FF6642173BF]
+	(No symbol) [0x00007FF66423F39C]
+	(No symbol) [0x00007FF664217153]
+	(No symbol) [0x00007FF6641E0421]
+	(No symbol) [0x00007FF6641E11B3]
+	GetHandleVerifier [0x00007FF6646CD71D+3223453]
+	GetHandleVerifier [0x00007FF6646C7CC2+3200322]
+	GetHandleVerifier [0x00007FF6646E5AF3+3322739]
+	GetHandleVerifier [0x00007FF6643E6A1A+180890]
+	GetHandleVerifier [0x00007FF6643EE11F+211359]
+	GetHandleVerifier [0x00007FF6643D5294+109332]
+	GetHandleVerifier [0x00007FF6643D5442+109762]
+	GetHandleVerifier [0x00007FF6643BBA59+4825]
+	BaseThreadInitThunk [0x00007FFEB0F57374+20]
+	RtlUserThreadStart [0x00007FFEB17FCC91+33]
+

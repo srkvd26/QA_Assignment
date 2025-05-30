@@ -68,44 +68,46 @@ def logger():
     return logger
 
 
-def capture_screen_shot(name):
-    driver.get_screenshot_as_file(name)
 
+@pytest.fixture
+def screen_shots_list():
+    return []
 
-# This hook is capture the screenshot upon failure and add the screenshot to the respective TC in report
+def pytest_configure(config):
+    global pytest_html
+    pytest_html = config.pluginmanager.get_plugin("html")
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     try:
-        # Instantiate the pytest plugin manager for html
-        pytest_html = item.config.pluginmanager.get_plugin("html")
         outcome = yield
-        # get the current test case result
         report = outcome.get_result()
         extra = getattr(report, "extra", [])
-        # At Setup phase or when framework calls it to update report we need to capture screenshot only on failure
-        if report.when == "call" or report.when == "setup":
+
+        if report.when in ("setup", "call"):
             xfail = hasattr(report, "wasxfail")
             if (report.skipped and xfail) or (report.failed and not xfail):
-                # get all screenshots from current test case
-                screen_shots = item.funcargs["screen_shots_list"]
+
+                # Attach multiple screenshots if available
+                screen_shots = item.funcargs.get("screen_shots_list", [])
                 for i, file_name in enumerate(screen_shots):
-                    # If file exist, then add the extra hyperlink that can show the screen shot captured
-                    if file_name:
+                    if file_name and os.path.exists(file_name):
                         html = f'<a href="{file_name}">Failure Screenshot {i+1}</a>'
                         extra.append(pytest_html.extras.html(html))
-                # Upon failure, capture the last screen where it is terminated
-                file_name_with_out_path = report.nodeid.split("/")[-1]
-                file = (
-                    file_name_with_out_path.replace("::", "_")
-                    + str(int(time.time()))
-                    + ".png"
-                )
-                # Define the custom path where to store the screen shots
-                file_name = os.path.join(os.getcwd(), "data", "test_result", file)
-                capture_screen_shot(file_name)
-                if file_name:
-                    html = f'<a href="{file}">Test case Termination Screenshot</a>'
+
+                # Final termination screenshot
+                file_base = report.nodeid.split("/")[-1].replace("::", "_")
+                timestamp = str(int(time.time()))
+                file_name = os.path.join(os.getcwd(), "data", "test_result", f"{file_base}_{timestamp}.png")
+
+                # Capture screenshot
+                driver = item.funcargs.get("driver")
+                if driver:
+                    driver.save_screenshot(file_name)
+                    html = f'<a href="{file_name}">Test case Termination Screenshot</a>'
                     extra.append(pytest_html.extras.html(html))
-            report.extras = extra
+
+        report.extra = extra
+
     except Exception as e:
-        print("Exception occured in Pytest makereport Hook")
+        print("Exception occurred in pytest_runtest_makereport Hook:", str(e))

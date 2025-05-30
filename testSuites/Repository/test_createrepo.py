@@ -5,15 +5,20 @@ import time
 
 
 @pytest.mark.parametrize("login", [("srkvd26", "Vasu@265")], indirect=True)
-def test_TC_repocre_001(login):
-    dashboard = Dashboard(login)
-    newrepo = NewRepo(login)
-    dashboard.click_add_icon()
-    dashboard.select_newrepository()
-    #time.sleep(2)
-    newrepo.enter_reponame("my-new-repo1")
-    newrepo.click_private_chkbx()
-    newrepo.scroll_to_create_and_click()
-    time.sleep(2)
-    
-    assert "my-new-repo1" in login.current_url
+def test_TC_repocre_001(login, logger):
+    try:
+        logger.info("********* test_TC_repocre_001 ********")
+        dashboard = Dashboard(login)
+        newrepo = NewRepo(login)
+        dashboard.click_add_icon()
+        dashboard.select_newrepository()
+        newrepo.enter_reponame("my-new-repo")
+        newrepo.click_private_chkbx()
+        newrepo.scroll_to_create_and_click()
+        time.sleep(2)
+        
+        assert "my-new-repo" in login.current_url
+
+    except Exception as e:
+        logger.info("[Exception Occured] " + str(e))
+        assert False, "Exception occured, hence test case is failed"
